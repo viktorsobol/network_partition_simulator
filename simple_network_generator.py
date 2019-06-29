@@ -11,6 +11,12 @@ class NodeRepresantation:
             return 'red'
         raise Exception('No such status')
 
+class NetworkTopologyGenerator:
+
+    def get(self) -> nx.Graph:
+        return nx.random_regular_graph(4, 10)
+
+
 G = nx.Graph()
 
 G.add_node(1, status='UP')
@@ -24,6 +30,13 @@ G.add_edge(3, 2)
 G.add_edge(4, 2)
 G.add_edge(5, 1)
 G.add_edge(5, 2)
+
+# G1 = nx.complete_graph(10)
+# G1 = nx.star_graph(10)
+# G1 = nx.margulis_gabber_galil_graph(3)
+topologyGenerator = NetworkTopologyGenerator()
+
+G = topologyGenerator.get()
 
 
 pos = nx.spring_layout(G)
