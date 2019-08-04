@@ -1,0 +1,4 @@
+means up = 8 mean_down = 2
+ epoch size = 100avg=1.9:
+means up = 8 mean_down = 2
+ epoch size = 100avg=1.9:
