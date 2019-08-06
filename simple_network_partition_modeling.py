@@ -71,6 +71,11 @@ def run_epoch(G, configuration: Configuration, epoch_lenght = 1000) -> int:
         node[1]['metadata'] = Node(configuration)
 
     total_count_of_failures = 0
+    pos = nx.spring_layout(G)
+
+    represanation = NodeRepresantation()
+
+    
 
     for i in  range(epoch_lenght):
                 
@@ -79,10 +84,19 @@ def run_epoch(G, configuration: Configuration, epoch_lenght = 1000) -> int:
 
         up_nodes = [x for x,y in G.nodes(data=True) if y['metadata'].status == 'UP']
 
+        node_colors = [ represanation.colourOf(node[1]['metadata'].status) for node in G.nodes(data=True)]
+
+        nx.draw_networkx_edges(G, pos)
+        nx.draw_networkx_nodes(G, pos, node_color=node_colors)
+        nx.draw_networkx_labels(G, pos)
+        # plt.pause(0.01)
+
         res = split_brain(list(up_nodes), G)
         if res == True:
             total_count_of_failures += 1
+        print('[{}], Status: {}, Total:{}'.format(i, res, total_count_of_failures))
   
+    # plt.show()
     print("Total failures: " + str(total_count_of_failures))
     return total_count_of_failures
 
