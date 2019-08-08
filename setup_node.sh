@@ -17,3 +17,8 @@ sudo apt-get install python3-pip
 pip3 install networkx matplotlib
 
 echo 'DONE'
+
+cd network_partition_simulator
+rm -rf NOT_eq_mean_experiment.txt
+rm -rf eq_mean_experiment.txt
+nohup python3 -u expiriments.py &
