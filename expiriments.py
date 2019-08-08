@@ -23,7 +23,7 @@ means = [Means(100, 15), Means(100, 10), Means(100, 5), Means(100,1)]
 epoch_lenght = 2000
 
 def write_result_to_file(mean: Means, result: int, g_number: int, file):
-    result_string = '[{}],g_number={},m_up={},m_down={},epoch_lenght={},res={}\n'.format(str(datetime.now()),g_number, mean.up, mean.down, epoch_lenght, result)
+    result_string = '[{}],g_number={},m_up={},m_down={},epoch_lenght={},res={}\n'.format(str(datetime.now()) ,g_number, mean.up, mean.down, epoch_lenght, result)
     file.write(result_string)    
 
 def experiment_equal_means(G, g_number):
@@ -33,7 +33,7 @@ def experiment_equal_means(G, g_number):
         for iteration in range(100):
             res = modeling.run_epoch(G, Configuration(mean.up, mean.down), epoch_lenght)
             write_result_to_file(mean, res, g_number, file_for_equal_mean)
-            print('EQ_MEAN::: g_number={}, iteration={}, mean_down={}'.format(g_number, iteration, mean.down))
+            print('EQ_MEAN:::[{}] g_number={}, iteration={}, mean_down={}'.format(str(datetime.now()), g_number, iteration, mean.down))
         file_for_equal_mean.flush()
         
 ##########################
@@ -45,7 +45,7 @@ def experiment_NOT_equal_means(G, g_number):
         for iteration in range(100):
             res = modeling.run_epoch(G, Configuration(mean.up, mean.down).withDeltas(int(mean.up / 10), int(mean.down / 10)), epoch_lenght)
             write_result_to_file(mean, res, g_number, file_for_NOT_equal_mean)
-            print('EQ_NOT_MEAN::: g_number={}, iteration={}, mean_up={}'.format (g_number, iteration, mean.up))
+            print('EQ_NOT_MEAN:::[{}] g_number={}, iteration={}, mean_up={}'.format (str(datetime.now()), g_number, iteration, mean.up))
         file_for_NOT_equal_mean.flush()
     
 

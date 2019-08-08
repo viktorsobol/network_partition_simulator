@@ -1,7 +1,10 @@
 #!/bin/bash
 
+if [ ! -d '/home/ubuntu/app']; then
+    mkdir /home/ubuntu/app
+fi
 cd /home/ubuntu/app
-pwd
+
 if [ ! -d "/home/ubuntu/app/network_partition_simulator" ]; then
     git clone https://github.com/Sobolvitya/network_partition_simulator.git
 else 
