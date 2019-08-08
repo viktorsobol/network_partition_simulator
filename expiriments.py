@@ -18,8 +18,7 @@ class Means:
 file_for_equal_mean = open('eq_mean_experiment.txt', 'a+')
 file_for_NOT_equal_mean = open('NOT_eq_mean_experiment.txt', 'a+')
 
-means = [Means(100, 15)]
-# [Means(100, 15), Means(100, 10), Means(100, 5), Means(100,1)]
+means = [Means(100, 15), Means(100, 10), Means(100, 5), Means(100,1)]
 
 epoch_lenght = 2000
 
@@ -51,7 +50,7 @@ def experiment_NOT_equal_means(G, g_number):
     
 
 # Run experiment on 100 different graphs 
-for g_number in range(1):
+for g_number in range(100):
     G = gg.small_world_generator(100, 6)
     
     G_equal_means = deepcopy(G)
