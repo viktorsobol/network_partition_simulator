@@ -1,4 +1,5 @@
 import networkx as nx
+from networkx import Graph
 import matplotlib.pyplot as plt
 import numpy as np
 import random
@@ -43,24 +44,24 @@ class Node:
     def __str__(self):
         return self.status + ':  ' + str(self.timLeft)
 
-def split_brain(nodes: list, G) -> bool:
+def split_brain(nodes: list, G: Graph) -> bool:
     if (len(nodes) == 0):
         return False
     nodes_up = nodes
-    to_visit = [nodes_up[0]]
-    visited = set()
+    to_visit = {nodes_up[0]:1}
+    visited = {}
    
     while(len(to_visit) > 0):
-        new_nodes = list(G.adj[to_visit[0]])
-        visited.add(to_visit[0])
-        to_visit.remove(to_visit[0])
+        to_visit_node = to_visit.popitem()
+        new_nodes = list(G.adj[to_visit_node[0]])
+        visited[to_visit_node[0]] = 1
        
         for new_node in new_nodes:
             if (G.nodes(data=True)[new_node]['metadata'].status == 'DOWN'):
                 continue
             if (new_node in visited):
                 continue
-            to_visit.append(new_node)
+            to_visit[new_node] = 1
     
     return len(visited) != len(nodes)
 

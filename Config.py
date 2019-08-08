@@ -1,9 +1,14 @@
 import numpy as np
 from random import randrange
+from queue import Queue
+
+QUEUE_SIZE = 20
 
 class PoissonGenerator:
     mean_up = 0
     mean_down = 0
+    queueUp = Queue(QUEUE_SIZE)
+    queueDown = Queue(QUEUE_SIZE)
 
     def __init__(self, mean_up, mean_down):
         self.mean_up = mean_up
@@ -11,8 +16,16 @@ class PoissonGenerator:
     
     def getTime(self, status: str)-> int:
         if status == 'UP':
+            # if self.queueUp.empty():
+            #     for i in np.random.poisson(self.mean_up, QUEUE_SIZE):
+            #         self.queueUp.put(i)
+            # return self.queueUp.get()
             return np.random.poisson(self.mean_up)
         if status == 'DOWN':
+            # if self.queueDown.empty():
+            #     for i in np.random.poisson(self.mean_down, QUEUE_SIZE):
+            #         self.queueDown.put(i)
+            # return self.queueDown.get()
             return np.random.poisson(self.mean_down)
         raise Exception('No such status' + status)
 
