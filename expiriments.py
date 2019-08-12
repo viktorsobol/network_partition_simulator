@@ -16,8 +16,7 @@ class Means:
 
 file_for_equal_mean = open('eq_mean_experiment.txt', 'a+')
 file_for_NOT_equal_mean = open('NOT_eq_mean_experiment.txt', 'a+')
-experiment_description_file = open('description.txt', 'w+')
-means = [Means(200, 15), Means(200, 30)]
+means = [Means(200, 15), Means(200, 30), Means(100, 15)]
 
 epoch_lenght = 2000
 
@@ -30,7 +29,7 @@ def experiment_equal_means(G, g_number):
     for mean in means:
         # 100 epochs for each mean
         for iteration in range(100):
-            res = modeling.run_epoch(G, Configuration(mean.up, mean.down), epoch_lenght)
+            res = modeling.run_epoch(G, Configuration(mean.up, mean.down), epoch_lenght, True)
             write_result_to_file(mean, res, g_number, file_for_equal_mean)
             print('EQ_MEAN:::[{}] g_number={}, iteration={}, mean_down={}'.format(str(datetime.now()), g_number, iteration, mean.down))
         file_for_equal_mean.flush()

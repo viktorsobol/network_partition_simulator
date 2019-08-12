@@ -66,10 +66,13 @@ def split_brain(nodes: list, G: Graph) -> bool:
     return len(visited) != len(nodes)
 
 # return total count of split_brain occurances during epoch
-def run_epoch(G, configuration: Configuration, epoch_lenght = 1000) -> int:
+def run_epoch(G, configuration: Configuration, epoch_lenght = 1000, run_one_by_one = False) -> int:
     
     for node in G.nodes(data=True):
-        node[1]['metadata'] = Node(configuration)
+        node_metadata = Node(configuration)
+        if run_one_by_one:
+            node_metadata.timLeft += random.randint(0, int(configuration.mean_up / 10))
+        node[1]['metadata'] = node_metadata
 
     total_count_of_failures = 0
 
