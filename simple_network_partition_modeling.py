@@ -71,7 +71,7 @@ def run_epoch(G, configuration: Configuration, epoch_lenght = 1000, run_one_by_o
     for node in G.nodes(data=True):
         node_metadata = Node(configuration)
         if run_one_by_one:
-            node_metadata.timLeft += random.randint(0, int(configuration.mean_up / 10))
+            node_metadata.timLeft += random.randint(0, int(configuration.mean_up * 0.9))
         node[1]['metadata'] = node_metadata
 
     total_count_of_failures = 0

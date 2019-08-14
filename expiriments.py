@@ -16,7 +16,7 @@ class Means:
 
 file_for_equal_mean = open('eq_mean_experiment.txt', 'a+')
 file_for_NOT_equal_mean = open('NOT_eq_mean_experiment.txt', 'a+')
-means = [Means(200, 15), Means(200, 30), Means(100, 15)]
+means = [Means(200, 30)]
 
 epoch_lenght = 2000
 
