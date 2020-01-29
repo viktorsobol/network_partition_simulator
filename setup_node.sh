@@ -17,4 +17,4 @@ pip3 install networkx matplotlib
 
 rm -rf NOT_eq_mean_experiment.txt
 rm -rf eq_mean_experiment.txt
-nohup python3 -u expiriments.py &
+nohup python3 -u experiments.py &
