@@ -2,3 +2,6 @@
 __pycache__/*
 NOT_eq_mean_experiment.txt
 eq_mean_experiment.txt
+results/
+row_experiment_data/
+experiment_data/
