@@ -1,5 +1,6 @@
-.vscode/*
-__pycache__/*
+.vscode/*/
+distributions/__pycache__/*
+__pycache__/
 NOT_eq_mean_experiment.txt
 eq_mean_experiment.txt
 results/
