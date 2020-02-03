@@ -1,13 +1,7 @@
-import networkx as nx
 from networkx import Graph
-import matplotlib.pyplot as plt
-import numpy as np
 import random
-import time
-import uuid
-import constants
-import Config as c
-from Config import Configuration
+from old_v.Config import Configuration
+
 
 class NodeRepresantation:
     def colourOf(self, status: str) -> str:
@@ -55,7 +49,6 @@ def split_brain(nodes: list, G: Graph) -> bool:
         to_visit_node = to_visit.popitem()
         new_nodes = list(G.adj[to_visit_node[0]])
         visited[to_visit_node[0]] = 1
-       
         for new_node in new_nodes:
             if (G.nodes(data=True)[new_node]['metadata'].status == 'DOWN'):
                 continue

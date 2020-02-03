@@ -1,8 +1,6 @@
-import graph_generators as gg
-import simple_network_partition_modeling as modeling
-import Config as c
+from old_v import simple_network_partition_modeling as modeling, graph_generators as gg
 from datetime import datetime
-from Config import Configuration
+from old_v.Config import Configuration
 import threading
 from copy import deepcopy
 

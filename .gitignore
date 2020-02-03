@@ -6,3 +6,5 @@ eq_mean_experiment.txt
 results/
 row_experiment_data/
 experiment_data/
+.idea
+venv
