@@ -1,0 +1,37 @@
+{
+  "epochs_count": 100,
+  "epoch_length": 10000,
+  "distribution_data": {
+    "distribution_type": "poisson",
+    "equal_node_params": {
+      "up": {
+        "mean": 300
+      },
+      "down": {
+        "mean": 30
+      }
+    },
+    "different_node_params": {
+      "deviation": 0.5,
+      "up": {
+        "mean": 300
+      },
+      "down": {
+        "mean": 30
+      }
+    }
+  },
+  "graph_data": {
+    "graph_type": "SMALL_WORLD",
+    "params": {
+      "nodes_count": 100,
+      "join_nearest_node_count": 5,
+      "probability_of_rewiring": 0.5
+    }
+  },
+  "execution_model": {
+    "run_type": "SEQUENTIAL_EXECUTION_MODEL",
+    "params": {}
+  },
+  "description": "Regular network test"
+}

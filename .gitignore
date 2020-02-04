@@ -8,3 +8,4 @@ row_experiment_data/
 experiment_data/
 .idea
 venv
+/experiments_src/log

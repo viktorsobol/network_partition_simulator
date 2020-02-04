@@ -9,7 +9,7 @@ logging.basicConfig(level=logging.INFO)
 class BaseDistribution:
 
     def __init__(self, name: str):
-        logging.info(name + ' distribution is created')
+        logging.debug(name + ' distribution is created')
 
     def next(self) -> int:
         logging.error('BaseDistribution next() is not implemented')

@@ -4,6 +4,9 @@ from nodes.nodemetadata import NodeMetadata
 from distributions.distributions import *
 from graph.graphs import *
 from copy import deepcopy
+import logging
+
+logging.basicConfig(level=logging.INFO)
 
 
 def build_base_network_topology(experiment_data):
@@ -44,21 +47,22 @@ def build_network_with_different_nodes(g: Graph, experiment_data: ExperimentData
     return g
 
 
-def run_epoch(g: Graph, epoch_length: int) -> int:
+def run_epoch(g: Graph, experiment_data: ExperimentData) -> int:
 
     total_count_of_failures = 0
 
-    for i in range(epoch_length):
+    for i in range(experiment_data.epoch_length):
 
-        print(i)
-                
+        if i % 100 == 0 and i > 0:
+            logging.info('{} done {}'.format(experiment_data.id, i))
+
         for node in g.nodes(data=True):
             node[1]['metadata'].tick()
 
         if split_brain(g):
             total_count_of_failures += 1
   
-    print("Total failures: " + str(total_count_of_failures))
+    logging.info("{} Total failures: {}".format(experiment_data.id, total_count_of_failures))
     return total_count_of_failures
 
 
@@ -87,11 +91,15 @@ def run(experiment_params_file: str):
     different_node_results = []
 
     for _ in range(experiment_data.epochs_count):
-        equal_node_result = run_epoch(network_with_equal_nodes, experiment_data.epoch_length)
-        different_node_result = run_epoch(network_with_different_nodes, experiment_data.epoch_length)
+        try:
+            equal_node_result = run_epoch(network_with_equal_nodes, experiment_data)
+            different_node_result = run_epoch(network_with_different_nodes, experiment_data)
 
-        equal_node_results.append(equal_node_result)
-        different_node_results.append(different_node_result)
+            equal_node_results.append(equal_node_result)
+            different_node_results.append(different_node_result)
+        except Exception as e:
+            logging.error('{} Exception occurred'.format(experiment_data.id), e)
+            break
 
     save_results(equal_node_results, different_node_results, experiment_data)
 
