@@ -1,27 +1,23 @@
 {
-  "epochs_count": 100,
+  "epochs_count": 500,
   "epoch_length": 10000,
   "distribution_data": {
-    "distribution_type": "normal",
+    "distribution_type": "poisson",
     "equal_node_params": {
       "up": {
-        "mean": 300,
-        "deviation": 30
+        "mean": 300
       },
       "down": {
-        "mean": 60,
-        "deviation": 6
+        "mean": 5
       }
     },
     "different_node_params": {
       "deviation": 0.5,
       "up": {
-        "mean": 300,
-        "deviation": 30
+        "mean": 300
       },
       "down": {
-        "mean": 60,
-        "deviation": 6
+        "mean": 5
       }
     }
   },
@@ -29,7 +25,7 @@
     "graph_type": "SMALL_WORLD",
     "params": {
       "nodes_count": 100,
-      "join_nearest_node_count": 5,
+      "join_nearest_node_count": 3,
       "probability_of_rewiring": 0.5
     }
   },
@@ -37,5 +33,5 @@
     "run_type": "SEQUENTIAL_EXECUTION_MODEL",
     "params": {}
   },
-  "description": "Time for repair is more and normal"
+  "description": "More reliable system but connection is low"
 }

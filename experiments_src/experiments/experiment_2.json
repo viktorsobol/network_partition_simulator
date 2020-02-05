@@ -1,23 +1,23 @@
 {
-  "epochs_count": 100,
+  "epochs_count": 500,
   "epoch_length": 10000,
   "distribution_data": {
     "distribution_type": "poisson",
     "equal_node_params": {
       "up": {
-        "mean": 100
+        "mean": 300
       },
       "down": {
-        "mean": 10
+        "mean": 5
       }
     },
     "different_node_params": {
       "deviation": 0.5,
       "up": {
-        "mean": 100
+        "mean": 300
       },
       "down": {
-        "mean": 10
+        "mean": 5
       }
     }
   },
@@ -33,5 +33,5 @@
     "run_type": "SEQUENTIAL_EXECUTION_MODEL",
     "params": {}
   },
-  "description": "Regular network test with small compare to epoch length lifetime"
+  "description": "More reliable system"
 }

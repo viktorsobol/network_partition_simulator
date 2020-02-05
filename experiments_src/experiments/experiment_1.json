@@ -1,5 +1,5 @@
 {
-  "epochs_count": 100,
+  "epochs_count": 500,
   "epoch_length": 10000,
   "distribution_data": {
     "distribution_type": "poisson",
@@ -33,5 +33,5 @@
     "run_type": "SEQUENTIAL_EXECUTION_MODEL",
     "params": {}
   },
-  "description": "Regular network test"
+  "description": "Regular network test with more epochs"
 }
