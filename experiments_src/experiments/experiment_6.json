@@ -1,0 +1,37 @@
+{
+  "epochs_count": 500,
+  "epoch_length": 10000,
+  "distribution_data": {
+    "distribution_type": "poisson",
+    "equal_node_params": {
+      "up": {
+        "mean": 300
+      },
+      "down": {
+        "mean": 5
+      }
+    },
+    "different_node_params": {
+      "deviation": 0.5,
+      "up": {
+        "mean": 300
+      },
+      "down": {
+        "mean": 5
+      }
+    }
+  },
+  "graph_data": {
+    "graph_type": "SMALL_WORLD",
+    "params": {
+      "nodes_count": 300,
+      "join_nearest_node_count": 3,
+      "probability_of_rewiring": 0.7
+    }
+  },
+  "execution_model": {
+    "run_type": "SEQUENTIAL_EXECUTION_MODEL",
+    "params": {}
+  },
+  "description": "More reliable system but connection is low and graph is bigger and rewiring is big"
+}
