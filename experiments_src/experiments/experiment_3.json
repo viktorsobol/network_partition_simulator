@@ -1,37 +1,37 @@
 {
-  "epochs_count": 500,
-  "epoch_length": 10000,
+  "description": "Regular network test with small deviation ",
   "distribution_data": {
-    "distribution_type": "poisson",
-    "equal_node_params": {
-      "up": {
-        "mean": 300
-      },
+    "different_node_params": {
+      "deviation": 0.2,
       "down": {
-        "mean": 5
+        "mean": 30.0
+      },
+      "up": {
+        "mean": 300.0
       }
     },
-    "different_node_params": {
-      "deviation": 0.5,
+    "distribution_type": "poisson",
+    "equal_node_params": {
+      "down": {
+        "mean": 30
+      },
       "up": {
         "mean": 300
-      },
-      "down": {
-        "mean": 5
       }
     }
   },
+  "epoch_length": 10000,
+  "epochs_count": 1000,
+  "execution_model": {
+    "params": {},
+    "run_type": "SEQUENTIAL_EXECUTION_MODEL"
+  },
   "graph_data": {
-    "graph_type": "SMALL_WORLD",
+    "network_type": "SMALL_WORLD",
     "params": {
+      "join_nearest_node_count": 5,
       "nodes_count": 100,
-      "join_nearest_node_count": 3,
       "probability_of_rewiring": 0.5
     }
-  },
-  "execution_model": {
-    "run_type": "SEQUENTIAL_EXECUTION_MODEL",
-    "params": {}
-  },
-  "description": "More reliable system but connection is low"
+  }
 }
