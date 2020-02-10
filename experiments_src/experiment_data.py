@@ -13,7 +13,7 @@ class DistributionData:
 class GraphData:
 
     def __init__(self, data: dict):
-        self.network_type = data['graph_type']
+        self.network_type = data['network_type']
         self.params = data['params']
 
 
