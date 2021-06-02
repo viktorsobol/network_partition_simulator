@@ -107,7 +107,7 @@ Tempita==0.5.1
 texttable==1.6.2
 tweepy==3.8.0
 typed-ast==1.4.0
-urllib3==1.25.7
+urllib3==1.26.5
 webencodings==0.5.1
 websocket-client==0.56.0
 wrapt==1.11.1
